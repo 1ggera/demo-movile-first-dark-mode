@@ -1,0 +1,330 @@
+/* estilos globales */
+body
+{
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  color: var(--baseColor);
+  background: var(--baseFondo);
+  /* border: 2px solid blue; */
+}
+:root
+{
+  --line-green: hsl(163, 72%, 41%);
+  --bright-red: hsl(356, 69%, 56%);
+
+  --facebook: #168ef4;
+  --twitter: hsl(203, 89%, 53%);
+  --instagram1: hsl(37, 97%, 70%);
+  --instagram2: hsl(329, 70%, 58%);
+  --youtube: hsl(348, 97%, 39%); 
+  --gray: #5f616d;
+  --card-gray: #f0f3fa;
+  --lightGray: #f8f9fe;
+  --baseFondo: white;
+  --baseColor: #1d2029;
+  --cardTitle: #6f717e;
+  --blancoSwitch: white;
+  --switch: #5f616d;
+}
+.wrapper
+{
+  padding: 0 30px;
+}
+.grid
+{
+  display: grid;
+  grid-row-gap: 25px;
+}
+.dark-mode
+{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1em;
+}
+.checkbox
+{
+  display: none;
+}
+.checkbox:checked ~ .switch:before /*si el checkbox está activado el elemento hermano 'switch' cambiará su positión a cero*/
+{
+  transform: translateX(26px);
+  background: deepskyblue;
+}
+.switch
+{
+  height: 35px;
+  display: block;
+  border-radius: 20px;
+  background: var(--gray);
+  width: 60px;
+  padding: 5px;
+  box-sizing: border-box; /* es para que la figura no salga de la caja */
+  cursor: pointer; /* efecto puntero sobre el switch */
+  user-select: none;/* para que no se seleccione el elemento al hacer varios clicks */
+}
+.switch::before
+{
+  content: "";
+  display: block;
+  width: 25px;
+  height: 25px;
+  background: var(--blancoSwitch);
+  border-radius: 50%;
+  transform: translateX(0px);
+  transition: .3s;/*efecto transición*/
+  will-change: transform; /*le brinda un efecto al efecto transform*/
+}
+/* header */
+.header
+{
+  background: var(--lightGray);
+  padding-bottom: 100px;
+  border-radius: 0 0 20px 20px;
+  padding-top: 2em;
+}
+.header h1
+{
+  margin: 0;
+  font-size: 1.9em;
+}
+.header-total
+{
+  color: var(--gray);
+  margin: .4em 0;
+  font-weight: 600;
+  border-bottom: 1px solid var(--gray);
+  padding-bottom: 1.5em;
+}
+/* container-cards */
+.container-cards
+{
+  margin-top: -50px;
+}
+/* card */
+.card
+{
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--card-gray);
+  text-align: center;
+  padding: 1.7em 0;
+  position: relative;
+}
+.card:before /*barrita superior de card*/
+{
+  content: "";
+  height: 4px;
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+.card.facebook::before
+{
+  background: var(--facebook);
+}
+.card.twitter::before
+{
+  background: var(--twitter);
+}
+.card.instagram::before /* para hacer gradient es background-image */
+{
+  background-image: linear-gradient(to right, var(--instagram1)0%, var(--instagram2) 100%);
+}
+.card.youtube::before
+{
+  background: var(--youtube);
+}
+.card-title
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cardTitle);
+  font-size: .9em;
+  font-weight: bold;
+}
+.card-title img
+{
+  margin-right: 5px;
+}
+.card-followers-number
+{
+  font-size: 50px;
+  text-align: center;
+  font-weight: 700;
+}
+.card-followers-title
+{
+  display: block;
+  text-transform: uppercase;
+  color: var(--cardTitle);
+  letter-spacing: 5px;
+  font-size: .75em;
+}
+.card-today
+{
+  margin-top: 20px;
+  color: var(--line-green);
+  font-size: .7em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-today img
+{
+  margin-right: 5px;
+}
+/* overview */
+.overview
+{
+  padding-bottom: 2em;
+}
+h2
+{
+  color: var(--gray);
+}
+.card-small
+{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 1em;
+  border-radius: 8px;
+  padding: 1.7em;
+  background: var(--card-gray);
+  padding: 1.7em;
+}
+.card-small p
+{
+  margin: 0;
+}
+.card-small-views
+{
+  /* border: 1px solid slategrey; */
+  font-weight: bold;
+  font-size: .9em;
+  color: var(--cardTitle);
+  font-weight: bold;
+  font-size: .9em;
+}
+.card-small-icon-fb
+{
+  /* border: 1px solid red; */
+  text-align: right;
+}
+.card-small-number
+{
+  /* border: 1px solid peru; */
+  font-weight: bold;
+  font-size: 1.7em;
+  line-height: .9em;
+}
+.card-small-followers
+{
+  /* border: 1px solid lawngreen; */
+  text-align: right;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  color: var(--line-green); 
+  font-size: .8em;
+  font-weight: bold;
+}
+.card-small-followers.is-danger
+{
+  color: var(--bright-red);
+}
+.card-small-followers span
+{
+  /* border: 1px solid blue; */
+  justify-content: .8em;
+  font-weight: bold;
+
+}
+.card-small-followers img
+{
+  margin-right: 2.5px;
+}
+/* 720 480 320 */
+@media screen and (min-width: 480px)
+{
+  .grid
+  {
+    /* border: 1px solid red; */
+    grid-template-columns: 1fr 1fr; /* acomoda segun la resolucion en dos o mas columnas*/
+    grid-column-gap: 25px;
+  }
+  .wrapper
+ 0 {
+    max-width: 1440px;
+    margin: auto;
+  }
+}
+@media screen and (min-width: 768px)
+{
+  .grid
+  {
+    /* border: 1px solid red; */
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media screen and (min-width: 1024px)
+{
+  .grid
+  {
+    /* border: 1px solid red; */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .header-total
+  {
+    border: none;
+  }
+  .header-grid
+  {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+  }
+}
+
+/*
+
+  
+
+*/
+.is-dark-mode
+{
+  --card-gray: #252b43;
+  --baseFondo: #1d2029;
+  --baseColor: white;
+  --gray: #8088ad;
+  --lightGray: #1d2029;
+  --cardTitle: #8088ad;
+  --blancoSwitch: #282943;
+  --switch: linear-gradient(to right, #4796d2 0&, #37ce8f 100%);
+}
+.is-light-mode
+{
+  --gray: #5f616d;
+  --card-gray: #f0f3fa;
+  --lightGray: #f8f9fe;
+  --baseFondo: white;
+  --baseColor: #1d2029;
+  --cardTitle: #6f717e;
+  --blancoSwitch: white;
+  --switch: #5f616d;
+}
+@media (prefers-color-scheme: dark){
+  :root
+  {
+    --card-gray: #252b43;
+    --baseFondo: #1d2029;
+    --baseColor: white;
+    --gray: #8088ad;
+    --lightGray: #1d2029;
+    --cardTitle: #8088ad;
+    --blancoSwitch: #282943;
+    --switch: linear-gradient(to right, #4796d2 0&, #37ce8f 100%);
+  }
+}
