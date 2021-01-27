@@ -5,7 +5,6 @@ body
   margin: 0;
   color: var(--baseColor);
   background: var(--baseFondo);
-  /* border: 2px solid blue; */
 }
 :root
 {
@@ -202,7 +201,6 @@ h2
 }
 .card-small-views
 {
-  /* border: 1px solid slategrey; */
   font-weight: bold;
   font-size: .9em;
   color: var(--cardTitle);
@@ -211,19 +209,16 @@ h2
 }
 .card-small-icon-fb
 {
-  /* border: 1px solid red; */
   text-align: right;
 }
 .card-small-number
 {
-  /* border: 1px solid peru; */
   font-weight: bold;
   font-size: 1.7em;
   line-height: .9em;
 }
 .card-small-followers
 {
-  /* border: 1px solid lawngreen; */
   text-align: right;
   display: flex;
   align-items: flex-end;
@@ -238,7 +233,6 @@ h2
 }
 .card-small-followers span
 {
-  /* border: 1px solid blue; */
   justify-content: .8em;
   font-weight: bold;
 
@@ -247,29 +241,7 @@ h2
 {
   margin-right: 2.5px;
 }
-/* 720 480 320 */
-@media screen and (min-width: 480px)
-{
-  .grid
-  {
-    /* border: 1px solid red; */
-    grid-template-columns: 1fr 1fr; /* acomoda segun la resolucion en dos o mas columnas*/
-    grid-column-gap: 25px;
-  }
-  .wrapper
- 0 {
-    max-width: 1440px;
-    margin: auto;
-  }
-}
-@media screen and (min-width: 768px)
-{
-  .grid
-  {
-    /* border: 1px solid red; */
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
+/* 1024 768 480 a 320 */
 @media screen and (min-width: 1024px)
 {
   .grid
@@ -287,11 +259,54 @@ h2
     grid-template-columns: 1fr 200px;
   }
 }
-
+@media screen and (min-width: 768px)
+{
+  .grid
+  {
+    /* border: 1px solid red; */
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media screen and (min-width: 480px)
+{
+  .grid
+  {
+    /* border: 1px solid red; */
+    grid-template-columns: 1fr 1fr; /* acomoda segun la resolucion en dos o mas columnas*/
+    grid-column-gap: 25px;
+  }
+  .wrapper
+ 0 {
+    max-width: 1440px;
+    margin: auto;
+  }
+  .footer
+    { 
+      display: block;
+      justify-content: center;
+      text-align: center;
+    }
+    .footer img
+    {
+        margin-right: 0;
+        margin-left: 0;
+    }
+}
+@media screen and (max-width: 480px)
+{
+  .footer
+    { 
+      display: block;
+      justify-content: center;
+      text-align: center;
+    }
+    .footer img
+    {
+        margin-right: 0;
+        margin-left: 0;
+    }
+}
 /*
-
-  
-
 */
 .is-dark-mode
 {
